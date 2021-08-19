@@ -22,9 +22,16 @@ const Formulario = () => {
      * Se ejecuta cuando el evento onChange de cada input se emite
      */
     const actualizarState = (e) => {
-        console.log(e.target.name)
+        // console.log(e.target.value)
+        console.log(`${e.target.name} : ${e.target.value}`)
+        actualizarCita({
+            ...cita,
+            [e.target.name]: e.target.value
+        })
     }
 
+    // Extraer valores nuevos del state
+    const {mascota, propietario, fecha, hora, sintomas} = cita
 
 
     return ( 
@@ -39,6 +46,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Nombre de mascota"
                     onChange={actualizarState}
+                    value={mascota}
                 />
 
                 <label>Nombre de Dueño</label>
@@ -48,6 +56,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Nombre de dueño"
                     onChange={actualizarState}
+                    value={propietario}
                 />
 
                 <label>Fecha</label>
@@ -56,6 +65,7 @@ const Formulario = () => {
                     name="fecha"
                     className="u-full-width"
                     onChange={actualizarState}
+                    value={fecha}
                 />
 
                 <label>Hora</label>
@@ -64,16 +74,18 @@ const Formulario = () => {
                     name="hora"
                     className="u-full-width"
                     onChange={actualizarState}
+                    value={hora}
                 />
 
                 <label>Sintomas</label>
-                <textArea
+                <textarea
                     type="text"
                     name="sintomas"
                     className="u-full-width"
                     placeholder="Sintomas..."   
-                    onChange={actualizarState}             
-                ></textArea>
+                    onChange={actualizarState}
+                    value={sintomas}         
+                ></textarea>
 
                 <button
                     type="submit"
