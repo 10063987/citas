@@ -1,5 +1,5 @@
 import React, { Fragment, useState} from 'react'
-import Formulario from './conponents/Formulario'
+import Formulario from './components/Formulario'
 
 function App() {
   return (
