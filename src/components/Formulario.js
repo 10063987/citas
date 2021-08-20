@@ -33,12 +33,30 @@ const Formulario = () => {
     // Extraer valores nuevos del state
     const {mascota, propietario, fecha, hora, sintomas} = cita
 
+     const submitCita = (e) =>{ 
+        e.preventDefault() 
+
+        console.log('Funciona')
+        
+
+        // Validar
+
+        // Asignar un ID
+
+        // Crear la cita   -   Colocarla en el state principal
+
+
+        // Reiniciar form
+        
+    } 
 
     return ( 
         <Fragment>
             <h2>Crear Cita</h2>
 
-            <form>
+            <form 
+                onSubmit={submitCita}
+            >
                 <label>Nombre Mascota</label>
                 <input
                     type="text"
