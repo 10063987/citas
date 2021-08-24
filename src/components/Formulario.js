@@ -62,6 +62,13 @@ const Formulario = ({crearCita}) => {
         crearCita(cita)
 
         // Reiniciar formulario
+        actualizarCita({
+            mascota: '',
+            propietario: '',
+            fecha: '',
+            hora: '',
+            sintomas: ''
+        })
         
     } 
 
