@@ -18,6 +18,8 @@ const Formulario = () => {
         sintomas: ''
     })
 
+    const [error, actualizarError] = useState(false)
+
     /**
      * Se ejecuta cuando el evento onChange de cada input se emite
      */
@@ -40,6 +42,19 @@ const Formulario = () => {
         
 
         // Validar
+        if(
+            mascota.trim() === ''
+            || propietario.trim() === ''
+            || hora.trim() === ''
+            || fecha.trim() === ''
+            || sintomas.trim() === ''
+        ){
+            actualizarError(true)
+            return
+        }
+
+        // Eliminar el mensaje previo
+        actualizarError(false)
 
         // Asignar un ID
 
@@ -53,6 +68,8 @@ const Formulario = () => {
     return ( 
         <Fragment>
             <h2>Crear Cita</h2>
+
+            { error ? <p className="alerta-error">Todos los campos sin obligatorios</p>  : null }
 
             <form 
                 onSubmit={submitCita}
