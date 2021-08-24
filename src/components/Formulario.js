@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react'
-import uuid from 'uuid/v4'
+import { nanoid } from 'nanoid'
 
-const Formulario = () => {
+
+const Formulario = ({crearCita}) => {
 
     // Crear state de citas
     /**
@@ -37,10 +38,7 @@ const Formulario = () => {
     const {mascota, propietario, fecha, hora, sintomas} = cita
 
      const submitCita = (e) =>{ 
-        e.preventDefault() 
-
-        console.log('Funciona')
-        
+        e.preventDefault()        
 
         // Validar
         if(
@@ -58,14 +56,16 @@ const Formulario = () => {
         actualizarError(false)
 
         // Asignar un ID
-        cita.id = uuid()
+        cita.id = nanoid()
 
         // Crear la cita   -   Colocarla en el state principal
+        crearCita(cita)
 
-
-        // Reiniciar form
+        // Reiniciar formulario
         
     } 
+
+    
 
     return ( 
         <Fragment>
