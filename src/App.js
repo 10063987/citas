@@ -1,4 +1,4 @@
-import React, { Fragment, useState} from 'react'
+import React, { Fragment, useState, useEffect} from 'react'
 import Formulario from './components/Formulario'
 import Cita from './components/Cita'
 
@@ -8,10 +8,25 @@ function App() {
   // Arreglo de citas
   const [citas, guardarCitas] = useState([])
 
-  // Guardar cita nueva
+  // useEffect para realizar operaciones "secundarias"
+  useEffect(() => {
+    console.log('Documento listo o algo paso con las citas')
+  }, [])
+
+
+
+  // Guardar cita nueva con las actuales
   const crearCita = cita =>{
     guardarCitas([ ...citas, cita ])
   }
+
+  // Eliminar cita por id 
+  const eliminarCita = id =>{
+    const nuevasCitas = citas.filter( cita => cita.id !== id )
+    guardarCitas(nuevasCitas)
+  }
+
+  const titulo = citas.length >= 1 ? <h2>Agrega una nueva cita</h2> : <h2>No hay citas</h2> 
 
   return (
     <Fragment>
@@ -24,11 +39,12 @@ function App() {
               />
             </div>
             <div className="one-half column">
-              <h2>Administra tus citas</h2>
+              {titulo}
               {citas.map(cita => (
                 <Cita 
                   key = {cita.id}
                   cita = {cita}
+                  eliminarCita = {eliminarCita}
                 />
               ))}
             </div>

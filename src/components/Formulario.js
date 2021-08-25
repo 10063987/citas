@@ -27,7 +27,7 @@ const Formulario = ({crearCita}) => {
      */
     const actualizarState = (e) => {
         // console.log(e.target.value)
-        console.log(`${e.target.name} : ${e.target.value}`)
+        // console.log(`${e.target.name} : ${e.target.value}`)
         actualizarCita({
             ...cita,
             [e.target.name]: e.target.value
