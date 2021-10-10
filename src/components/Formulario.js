@@ -77,29 +77,29 @@ const Formulario = ({crearCita}) => {
 
     return ( 
         <Fragment>
-            <h2>Crear Cita</h2>
+            <h2>Reservaciones</h2>
 
             { error ? <p className="alerta-error">Todos los campos sin obligatorios</p>  : null }
 
             <form 
                 onSubmit={submitCita}
             >
-                <label>Nombre Mascota</label>
+                <label>Nombre</label>
                 <input
                     type="text"
                     name="mascota" // 
                     className="u-full-width"
-                    placeholder="Nombre de mascota"
+                    placeholder="A nombre de... "
                     onChange={actualizarState}
                     value={mascota}
                 />
 
-                <label>Nombre de Dueño</label>
+                <label>Apellido</label>
                 <input 
                     type="text"
                     name="propietario"
                     className="u-full-width"
-                    placeholder="Nombre de dueño"
+                    placeholder="Señor/Señorita..."
                     onChange={actualizarState}
                     value={propietario}
                 />
@@ -122,12 +122,12 @@ const Formulario = ({crearCita}) => {
                     value={hora}
                 />
 
-                <label>Sintomas</label>
+                <label>Peticiones adicionales</label>
                 <textarea
                     type="text"
                     name="sintomas"
                     className="u-full-width"
-                    placeholder="Sintomas..."   
+                    placeholder="Adornos para celebración y pastel con vela..."   
                     onChange={actualizarState}
                     value={sintomas}         
                 ></textarea>
@@ -136,7 +136,7 @@ const Formulario = ({crearCita}) => {
                     type="submit"
                     className="u-full-width button-primary"
                     onChange={actualizarState}
-                >Agregar cita</button>
+                >Reservar</button>
 
             </form>
         </Fragment>

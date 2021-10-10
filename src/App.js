@@ -28,7 +28,7 @@ function App() {
 
   // Guardar cita nueva con las actuales
   const crearCita = cita =>{
-    guardarCitas([ ...citas, cita ])
+    guardarCitas([ ...citas, cita ]) // Deestructuramos un arreglo y le concatenamos un objeto. citas es un arreglo de objetos
   }
 
   // Eliminar cita por id 
@@ -37,11 +37,11 @@ function App() {
     guardarCitas(nuevasCitas)
   }
 
-  const titulo = citas.length >= 1 ? <h2>Agrega una nueva cita</h2> : <h2>No hay citas</h2> 
+  const titulo = citas.length >= 1 ? <h2>Tus reservaciones</h2> : <h2>No Tienes reservaciones agendadas</h2> 
 
   return (
     <Fragment>
-        <h1>Administrador de pacientes</h1>
+        <h1>WingsBox Garden</h1>
         <div className="container">
           <div className="row">
             <div className="one-half column">
